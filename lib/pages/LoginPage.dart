@@ -4,11 +4,7 @@
 import 'package:demo_application/components/my_textfied.dart';
 import 'package:demo_application/components/square_tile.dart';
 import 'package:demo_application/pages/ForgotPassword.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'RegisterPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:demo_application/Services/LoginService.dart';
@@ -73,16 +69,24 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(child: 
-      Stack(children:[Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: ExactAssetImage('lib/images/car.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+      Stack(children:[
+        // Container(
+        //     decoration: BoxDecoration(
+        //       image: DecorationImage(
+        //         image: ExactAssetImage('lib/images/car.jpg'),
+        //         fit: BoxFit.cover,
+        //       ),
+        //     ),
+        //   ),
           Container(
-            color:Colors.grey.withOpacity(0.4)
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+      Color(0xFF6C7A89), // Slate Grey
+      Color(0xFFBDC3C7), // Dusty Blue
+      Color(0xFFF2F4F5), 
+              ],
+              begin: Alignment.topLeft,end: Alignment.bottomRight),
+            ),
           ),
       Column(children: [
         const SizedBox(height: 50,),
@@ -94,10 +98,10 @@ class _LoginPageState extends State<LoginPage> {
         const SizedBox(height: 50),
 
         Text(
-          'welcome back',
-          style: TextStyle(color:Colors.grey[700],
-          fontSize: 16,
-                   
+          'welcome back'.toUpperCase(),
+          style: TextStyle(color:Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.w500                   
           ),
           
         ),
@@ -137,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
 
             Text(
               'Remember me',
-              style: TextStyle(color: Color.fromARGB(255, 4, 193, 250)),
+              style: TextStyle(color: Colors.blue),
             ),
           ],),
           
@@ -156,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     child: Text(
                       'forgot passoword?',
-                      style: TextStyle(color:Colors.grey[600]),
+                      style: TextStyle(color:Colors.black),
                     ),
                   ),
                 ],
@@ -209,7 +213,7 @@ Padding(
                 children: [
                   Text(
                     'Don\'t have an account? ',
-                    style: TextStyle(color: Colors.grey[600]),
+                    style: TextStyle(color: Colors.black),
                   ),
                   GestureDetector(
                     onTap: () {
